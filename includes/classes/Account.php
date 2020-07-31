@@ -34,10 +34,10 @@ class Account
     }
     private function insertUserDetails($un,$fn,$ln,$em,$pw){
         $encryptedPw = md5($pw);
-        $profilePic = "assets/images/profile-pics/no-image.jpg";
+        $profilePic = "assets/images/profile-pics.jpg/no-image.jpg";
         $date = date("Y-m-d");
 
-        $sql = "INSERT INTO users VALUES('','$un','$fn','$ln','$em','$encryptedPw','$date','$profilePic')";
+        $sql ="INSERT INTO users VALUES('','$un','$fn','$ln','$em','$encryptedPw','$date','$profilePic')";
         //$result = mysqli_query($this->con, "INSERT INTO users VALUES('','$un','$fn','$ln','$em','$encryptedPw', '$date', '$profilePic')");
         return $result = mysqli_query($this->con, $sql);
     }
@@ -45,17 +45,20 @@ class Account
     private function validateUsername($un){
         if(strlen($un) > 25 || strlen($un) < 5){
             array_push($this->errorArray, Constants::usernameCharacters);
+            return;
         }
         // TODO: check if username exist
     }
     private function validateFirstName($fn){
         if(strlen($fn) > 25 || strlen($fn) < 2){
             array_push($this->errorArray, Constants::firstNameCharacters);
+            return;
         }
     }
     private function validateLastName($ln){
         if(strlen($ln) > 25 || strlen($ln) < 2){
             array_push($this->errorArray, Constants::lastNameCharacters);
+            return;
         }
     }
     private function validateEmails($em, $em2){
@@ -80,8 +83,10 @@ class Account
         }
         if(strlen($pw) > 20 || strlen($pw) < 5){
             array_push($this->errorArray, Constants::passwordCharacters);
+            return;
         }
 
 
     }
 }
+?>

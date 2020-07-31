@@ -1,11 +1,12 @@
 <?php
     ob_start();
 
-    $timeZone = date_default_timezone_set("America/Los_Angeles");
+    $timezone = date_default_timezone_set("America/Los_Angeles");
 
     $con = mysqli_connect("localhost", "root", "", "project");
 
     if(mysqli_connect_errno()){
-        echo "failed to connect: ".mysqli_connect_error();
+        echo "failed to connect: " . mysqli_connect_error();
     }
+    ?>
 

@@ -38,5 +38,5 @@ if (isset($_POST['registerButton'])){
     }
 }
 
-
+?>
 

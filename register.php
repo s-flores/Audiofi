@@ -1,7 +1,7 @@
 <?php
+    include("includes/config.php");
     include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
-    include("includes/config.php");
 
     $account = new Account($con);
     

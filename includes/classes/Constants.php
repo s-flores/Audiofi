@@ -11,3 +11,4 @@ class Constants{
     const firstNameCharacters ="First name must be between 2 and 25 characters";
     const usernameCharacters = "Username must be between 5 and 25 characters";
 }
+?>
