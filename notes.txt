@@ -2,3 +2,8 @@
 #loginForm{
     display: none;
 }
+
+
+       <div class="progressBarBg">
+                                <div class="progress"></div>
+                            </div>
