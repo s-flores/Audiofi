@@ -1,9 +1,19 @@
 
-#loginForm{
-    display: none;
+
+$resultArray = aray();
+
+
+while($row = mysqli_fetch_array($songQuery)) {
+    array_push($resultArray, $row['id']);
 }
 
+$jsonArray = json_encode($resultArray);
 
-       <div class="progressBarBg">
-                                <div class="progress"></div>
-                            </div>
+
+
+
+\
+<script>
+    console.log(<?php echo $jsonArray; ?>);
+</script>
+
