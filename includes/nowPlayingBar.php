@@ -27,7 +27,6 @@ $(document).ready(function() {
         mouseDown = true;
     });
 
-
     $(".playbackBar .progressBar").mousemove(function(e){
         if(mouseDown){
             timeFromOffset(e, this);
@@ -130,8 +129,8 @@ function setShuffle(){
 
 function shuffleArray(a) {
     var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
         x = a[i - 1];
         a[i - 1] = a[j];
         a[j] = x;
@@ -151,10 +150,8 @@ function setTrack(trackId, newPlaylist, play){
         currentIndex = shufflePlaylist.indexOf(trackId);
     }
     else{
-        currentIndex = shufflePlaylist.indexOf(trackId);
+        currentIndex = currentPlaylist.indexOf(trackId);
     }
-
-    currentIndex = currentPlaylist.indexOf(trackId);
     pauseSong();
       
     $.post("includes/handlers/ajax/getSongJson.php", {songId : trackId}, function(data){
@@ -174,13 +171,12 @@ function setTrack(trackId, newPlaylist, play){
 
 
         audioElement.setTrack(track);
-        playSong();
 
+        if(play) {
+            playSong();
+        }
     });
 
-    if(play) {
-        audioElement.play();
-    }
 }
 
 function playSong(){
@@ -218,11 +214,11 @@ function pauseSong(){
                 <div class="trackInfo">
 
                     <span class="trackName">
-                        <span>Hello Welcome</span>
+                        <span></span>
                     </span>
 
                     <span class="artistName">
-                        <span>Silvestre Flores</span>
+                        <span></span>
                     </span>
 
                 </div>
