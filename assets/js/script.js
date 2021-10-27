@@ -20,12 +20,14 @@ function openPage(url){
     }
     
     var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+    console.log(encodedUrl);
     $("#mainContent").load(encodedUrl);
     $("body").scrollTop(0);
     history.pushState(null, null, url);
 }
 
 function createPlaylist(){
+    console.log(userLoggedIn);
     var popup = prompt("Enter playlist name");
 
     if(popup != null){
@@ -39,6 +41,23 @@ function createPlaylist(){
             openPage("yourMusic.php");
         });
     }
+}
+
+function deletePlaylist(playlistId){
+    var prompt = confirm("Are you sure you want to delete playlist?");
+
+    if(prompt){
+        $.post("includes/handlers/ajax/deletePlaylist.php", {playlistId : playlistId})
+        .done(function(error){
+
+            if(error != ""){
+                alert(error);
+                return;
+            }
+            openPage("yourMusic.php");
+        });
+    }
+
 }
 
 function formatTime(seconds){
