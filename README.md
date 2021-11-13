@@ -1,4 +1,4 @@
-# MusicStreamer
+# Audiofi
 
 Music streaming web app using PHP, JavaScript and MySQL.
 
