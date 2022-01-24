@@ -23,6 +23,18 @@ min-width: 720px;
     bottom: 0;
     position: fixed;
     min-width: 620px;
+
+    -webkit-touch-callout: none;
+     /* iOS Safari */   
+     -webkit-user-select: none; 
+     /* Safari */   
+     -khtml-user-select: none; 
+     /* Konqueror HTML */   
+     -moz-user-select: none; 
+     /* Old versions of Firefox */   
+     -ms-user-select: none; 
+     /* Internet Explorer/Edge */   
+     user-select: none;
 }
 
 #nowPlayingBar {
